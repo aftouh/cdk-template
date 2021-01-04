@@ -1,0 +1,26 @@
+awsAccount: "558791111127"
+awsRegion: eu-west-2
+
+network:
+  vpc:
+    cidr: 10.10.128.0/18
+
+data:
+  elasticsearch:
+    capacity:
+      masterNodes:
+        instanceType: t2.small.elasticsearch
+        count: 3
+      dataNodes:
+        instanceType: t2.small.elasticsearch
+        count: 3
+    ebs:
+      volumeSize: 10
+    zoneAwareness:
+      enabled: true
+      count: 3
+    logging:
+      appLogEnabled: false
+      auditLogEnabled: false
+      slowIndexLogEnabled: false
+      slowIearchLogEnabled: false

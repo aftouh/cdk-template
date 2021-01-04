@@ -1,0 +1,6 @@
+awsAccount: "558791111127"
+awsRegion: eu-west-3
+
+network:
+  vpc:
+    cidr: 10.11.128.0/18

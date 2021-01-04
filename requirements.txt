@@ -1,2 +1,4 @@
 -e .
 pytest
+flake8
+autopep8

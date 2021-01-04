@@ -1,9 +1,15 @@
 import setuptools
 
-
 with open("README.md") as fp:
     long_description = fp.read()
 
+
+def __read_cdk_version() -> str:
+    f = open('cdk.version')
+    return f.read()
+
+
+CDK_VERSION = __read_cdk_version()
 
 setuptools.setup(
     name="cdk_template",
@@ -15,16 +21,12 @@ setuptools.setup(
 
     author="author",
 
-    package_dir={"": "cdk_template"},
-    packages=setuptools.find_packages(where="cdk_template"),
-
     install_requires=[
-        "aws-cdk.core==1.82.0",
-        "aws-cdk.aws_iam==1.82.0",
-        "aws-cdk.aws_sqs==1.82.0",
-        "aws-cdk.aws_sns==1.82.0",
-        "aws-cdk.aws_sns_subscriptions==1.82.0",
-        "aws-cdk.aws_s3==1.82.0",
+        "aws-cdk.core==" + CDK_VERSION,
+        "aws-cdk.aws-ec2==" + CDK_VERSION,
+        "aws-cdk.aws-eks==" + CDK_VERSION,
+        "aws-cdk.aws-elasticsearch==" + CDK_VERSION,
+        "python-benedict==0.22.4"
     ],
 
     python_requires=">=3.6",
