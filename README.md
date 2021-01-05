@@ -1,34 +1,35 @@
-# cdk template application
+# CDK template application
 
-This repository contains an AWS infrastructure composed of a VPC and its subresources, a kubrnetes cluster and an elasticsearch cluster.  
-This infrastructure is developed in python based on the AWS CDK framework.
+This repository hosts a CDK project that provison a multi-stage AWS infrastructure composed of a VPC, a kubrnetes cluster and an elasticsearch cluster.
 
-## Prerequisities:
+## Dev tools:
 
-To deploy this application, you will need these elements
+Need tools:
 
-- an AWS account
-- aws cli installed and configured
+- aws cli
+- aws account
 - cdk cli
 - python3
 
 ## Stage bootstrapping
 
-Make sur that you have your stage config file under `config` dir. Then update it's content according to your context (AWS account id, cluster size...)
+Before trying to deploy a stage, go through these steps:
 
-Allow ES AWS service to access your vpc resource by running this command:
+- Create your stage config file under `config` dir. Then update its content according to your context (account id, cluster size, ...)
+
+- Allow ES AWS service to access your vpc resources by running this command:
 
 ```bash
 aws iam create-service-linked-role --aws-service-name es.amazonaws.com
 ```
 
-Bootstrap the cdk toolkit. This is needed for the ComputeStack as we are using some assets
+- Bootstrap the cdk toolkit. This step is needed for the ComputeStack as we are using assets.
 
 ```bash
 make bootstrapp-cdk-toolkit
 ```
 
-Create a python virualenv and install dependencies using this command:
+- Create a python virualenv and install dependencies using this command:
 
 ```bash
 make local-venv
@@ -36,8 +37,10 @@ source .venv/bin/activate
 make install-dependencies
 ```
 
+That's it! Now you are ready to provision your stage.
+
 ## Stage lifecycle
 
-- `make diff STAGE=dev` show cdk diff for the dev stage and all cdks stacks
+- `make diff STAGE=dev` display cdk diff for the dev stage and all cdk stacks
 - `make deploy STAGE=dev STACKS=NetworkStack` synthesize cloudformation template then deploy the NetworkStack of the dev stage
-- `make destroy` will destroy all the stacks of the dev stage
+- `make destroy` destroy the 3 stacks of the dev stage

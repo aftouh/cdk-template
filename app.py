@@ -10,10 +10,10 @@ from utils import config_util
 
 app = core.App()
 
-# Get stage from cdk context
+# Get target stage from cdk context
 stage = app.node.try_get_context('stage')
 if stage is None or stage == "unknown":
-    sys.exit('You need to set the target.'
+    sys.exit('You need to set the target stage.'
              ' USAGE: cdk <command> -c stage=dev <stack>')
 
 # Load stage config and set cdk environment
