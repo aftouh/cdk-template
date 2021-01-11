@@ -4,8 +4,6 @@ This repository hosts a CDK project that provison a multi-stage AWS infrastructu
 
 ## Dev tools:
 
-Need tools:
-
 - aws cli
 - aws account
 - cdk cli
