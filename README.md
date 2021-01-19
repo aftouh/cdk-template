@@ -2,6 +2,8 @@
 
 This repository hosts a CDK project that provison a multi-stage AWS infrastructure composed of a VPC, a kubrnetes cluster and an elasticsearch cluster.
 
+Learn more about this project setup by reading this [article](https://medium.com/better-programming/how-to-organize-your-aws-cdk-project-f1c463aa966e).
+
 ## Dev tools:
 
 - aws cli
@@ -39,6 +41,6 @@ That's it! Now you are ready to provision your stage.
 
 ## Stage lifecycle
 
-- `make diff STAGE=dev` display cdk diff for the dev stage and all cdk stacks
-- `make deploy STAGE=dev STACKS=NetworkStack` synthesize cloudformation template then deploy the NetworkStack of the dev stage
+- `make diff STAGE=pro` display cdk diff of all stacks of the pro stage
+- `make deploy STAGE=dev STACKS=NetworkStack` synthesize cloudformation template then deploy the NetworkStack to the dev stage
 - `make destroy` destroy the 3 stacks of the dev stage
